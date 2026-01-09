@@ -1,0 +1,44 @@
+---
+title: "Project"
+format: html
+editor: visual
+---
+
+## File description:
+
+The India Housing Prices Dataset contains 2.5 lakh rows and 23 columns, offering detailed insights into housing market trends across various Indian states. It includes attributes related to property types, pricing, location, and amenities, making it suitable for analysis ranging from basic descriptive statistics to advanced machine learning applications.
+
+```{r}
+dt = read.csv(file = "D:/MTTS STDSMLAI/Project/india_housing_prices.csv", 
+              header = TRUE)
+head(dt)
+```
+
+```{r}
+dim(dt)
+```
+
+```{r}
+colnames(dt)
+```
+
+## Column Description
+
+Some understanding from our Data set
+
+**ID**: Different rows having different Integer values
+
+**State**: Name of States of India having character
+
+```{r}
+typeof(dt$State)
+length(unique(dt$State))
+```
+
+```{r}
+sapply(dt, class)
+```
+
+```{r}
+
+```
