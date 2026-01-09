@@ -27,22 +27,75 @@ colnames(dt)
 Some understanding from our Data set
 
 -   **ID**: Different rows having different Integer values
+
 -   **State**: Name of States of India ( character )
+
 -   **City**: Name of Cities ( character )
+
 -   **Locality**: Name of Localities ( character )
+
 -   **Property_Type**: 3 types of property. ( Apartment, Independent House, Villa )
+
 -   **BHK**: 5 varieties are there. ( 1,2,3,4,5)
--   **Size_in_sqFt**:
+
+-   **Size_in_sqFt**: Plot size in Sqft. ( integer )
+
+-   **Price_in_Lakhs**: House price in Lakhs ( Double )
+
+-   **Price_per_SqFt**: House price per Sqft. ( Double )
+
+    **Price_in_Lakhs = Size_in_SqFt × Price_per_SqFt** 
+
+-   **Year_Built**: Year of built. ( integer )
+
+-   **Furnished_Status**: Furnished Status ( Furnished, Unfurnished, Semi-furnished )
+
+-   **Floor_No**: Floor No ( Integer )
+
+-   **Total_Floors**: Total floor in the house ( Integer )
+
+-   **Age_of_Property**: Age of property ( Integer )
+
+-   **Nearby_Schools**: No. of nearby schools. ( Integer )
+
+-   **Nearby_Hospitals**: No. of nearby hospital. ( Integer )
+
+-   **Public_Transport_Accessibility**: Chance of getting Public Transportation (High, Low, Medium )
+
+-   **Parking_Space**: Parking Space present or not ( Yes, No )
+
+-   **Security**: ( Yes, No )
+
+-   **Amenities**: Amenities like: Playground, Gym, Pool, etc.
+
+-   **Facing**: House Facing in which Direction ( East, West, South, North )
+
+-   **Owner_Type**: Type of owner ( Owner, Builder, Broker )
+
+-   **Availability_Status**: Status of availability ( Ready_to_move, Under_construction )
 
 ```{r}
-typeof(dt$BHK)
-length(unique(dt$BHK))
+typeof(dt$Availability_Status)
+length(unique(dt$Availability_Status))
 ```
 
 ```{r}
-sapply(dt, class)
+summary(dt$Size_in_SqFt)
 ```
 
 ```{r}
+boxplot(dt$Size_in_SqFt,horizontal = TRUE )
+```
 
+```{r}
+summary(dt$Price_in_Lakhs)
+val = dt$Price_in_Lakhs/10
+summary(val)
+boxplot(dt$Price_in_Lakhs)
+```
+
+```{r}
+summary(dt$Price_per_SqFt)
+boxplot(dt$Price_per_SqFt)
+plot( dt$Price_per_SqFt)
 ```

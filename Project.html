@@ -100,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="file-description" class="level2">
 <h2 class="anchored" data-anchor-id="file-description">File description:</h2>
-<p>The India Housing Prices Dataset contains 2.5 lakh rows and 23 columns, offering detailed insights into housing market trends across various Indian states. It includes attributes related to property types, pricing, location, and amenities, making it suitable for analysis ranging from basic descriptive statistics to advanced machine learning applications.</p>
+<p>The India Housing Prices Data set contains 2.5 lakh rows and 23 columns, offering detailed insights into housing market trends across various Indian states. It includes attributes related to property types, pricing, location, and amenities, making it suitable for analysis ranging from basic descriptive statistics to advanced machine learning applications.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"D:/MTTS STDSMLAI/Project/india_housing_prices.csv"</span>, </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
@@ -177,46 +177,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="column-description" class="level2">
 <h2 class="anchored" data-anchor-id="column-description">Column Description</h2>
 <p>Some understanding from our Data set</p>
-<p><strong>ID</strong>: Different rows having different Integer values</p>
-<p><strong>State</strong>: Name of States of India having character</p>
-<p>uygbiybg</p>
+<ul>
+<li><p><strong>ID</strong>: Different rows having different Integer values</p></li>
+<li><p><strong>State</strong>: Name of States of India ( character )</p></li>
+<li><p><strong>City</strong>: Name of Cities ( character )</p></li>
+<li><p><strong>Locality</strong>: Name of Localities ( character )</p></li>
+<li><p><strong>Property_Type</strong>: 3 types of property. ( Apartment, Independent House, Villa )</p></li>
+<li><p><strong>BHK</strong>: 5 varieties are there. ( 1,2,3,4,5)</p></li>
+<li><p><strong>Size_in_sqFt</strong>: Plot size in Sqft. ( integer )</p></li>
+<li><p><strong>Price_in_Lakhs</strong>: House price in Lakhs ( Double )</p></li>
+<li><p><strong>Price_per_SqFt</strong>: House price per Sqft. ( Double )</p>
+<p><strong>Price_in_Lakhs = Size_in_SqFt × Price_per_SqFt</strong>&nbsp;</p></li>
+<li><p><strong>Year_Built</strong>: Year of built. ( integer )</p></li>
+<li><p><strong>Furnished_Status</strong>: Furnished Status ( Furnished, Unfurnished, Semi-furnished )</p></li>
+<li><p><strong>Floor_No</strong>: Floor No ( Integer )</p></li>
+<li><p><strong>Total_Floors</strong>: Total floor in the house ( Integer )</p></li>
+<li><p><strong>Age_of_Property</strong>: Age of property ( Integer )</p></li>
+<li><p><strong>Nearby_Schools</strong>: No.&nbsp;of nearby schools. ( Integer )</p></li>
+<li><p><strong>Nearby_Hospitals</strong>: No.&nbsp;of nearby hospital. ( Integer )</p></li>
+<li><p><strong>Public_Transport_Accessibility</strong>: Chance of getting Public Transportation (High, Low, Medium )</p></li>
+<li><p><strong>Parking_Space</strong>: Parking Space present or not ( Yes, No )</p></li>
+<li><p><strong>Security</strong>: ( Yes, No )</p></li>
+<li><p><strong>Amenities</strong>: Amenities like: Playground, Gym, Pool, etc.</p></li>
+<li><p><strong>Facing</strong>: House Facing in which Direction ( East, West, South, North )</p></li>
+<li><p><strong>Owner_Type</strong>: Type of owner ( Owner, Builder, Broker )</p></li>
+<li><p><strong>Availability_Status</strong>: Status of availability ( Ready_to_move, Under_construction )</p></li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(dt<span class="sc">$</span>State)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(dt<span class="sc">$</span>Availability_Status)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(dt<span class="sc">$</span>State))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(dt<span class="sc">$</span>Availability_Status))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 20</code></pre>
+<pre><code>[1] 2</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(dt, class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dt<span class="sc">$</span>Size_in_SqFt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                            ID                          State 
-                     "integer"                    "character" 
-                          City                       Locality 
-                   "character"                    "character" 
-                 Property_Type                            BHK 
-                   "character"                      "integer" 
-                  Size_in_SqFt                 Price_in_Lakhs 
-                     "integer"                      "numeric" 
-                Price_per_SqFt                     Year_Built 
-                     "numeric"                      "integer" 
-              Furnished_Status                       Floor_No 
-                   "character"                      "integer" 
-                  Total_Floors                Age_of_Property 
-                     "integer"                      "integer" 
-                Nearby_Schools               Nearby_Hospitals 
-                     "integer"                      "integer" 
-Public_Transport_Accessibility                  Parking_Space 
-                   "character"                    "character" 
-                      Security                      Amenities 
-                   "character"                    "character" 
-                        Facing                     Owner_Type 
-                   "character"                    "character" 
-           Availability_Status 
-                   "character" </code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    500    1623    2747    2750    3874    5000 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter.smooth</span>(dt<span class="sc">$</span>Size_in_SqFt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Project_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dt<span class="sc">$</span>Size_in_SqFt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Project_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
