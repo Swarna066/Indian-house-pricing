@@ -30,6 +30,8 @@ Some understanding from our Data set
 
 **State**: Name of States of India having character
 
+uygbiybg
+
 ```{r}
 typeof(dt$State)
 length(unique(dt$State))
